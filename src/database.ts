@@ -1,5 +1,6 @@
 import { CATEGORIAS, Product, Purchase, User } from "./types";
 
+
 export const users: User[] = [
     {
         id: "1",
