@@ -64,6 +64,12 @@ app.post('/purchases', (req, res) => {
     console.log(quantity);
     console.log(totalPrice);
 });
+app.get('/products/:id', (req, res) => {
+    const id = req.params.id;
+    const result = database_2.products.find((product) => product.id === id);
+    res.status(200);
+    res.send("Object product encontrado");
+});
 console.log(database_1.users);
 console.log(database_2.products);
 console.log(database_3.purchases);
