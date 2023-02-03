@@ -70,6 +70,50 @@ app.post('/purchases', (req: Request, res: Response) => {
     console.log(totalPrice);
 })
 
+app.get('/products/:id', (req: Request, res: Response) => {
+    const id = req.params.id
+    res.status(200)
+    res.send("Object product encontrado")
+})
+
+app.get('/users/:id/purchases', (req: Request, res: Response) => {
+    const id = req.params.id
+    res.status(200)
+    res.send("Array de compras do user procurado")
+})
+
+app.delete('/users/:id', (req:Request, res:Response)=>{
+    const id = req.params.id
+    res.status(200)
+    res.send("Usuario")
+})
+
+app.delete('/products/:id',(req:Request, res: Response)=>{
+    const id = req.params.id
+    res.status(200)
+    res.send("Item deletado com sucesso")
+})
+
+app.put('/users/:id',(req:Request, res:Response)=>{
+    const id = req.params.id
+    const newEmail = req.body.email as string | undefined
+    const newPassword = req.body.password as string | undefined
+
+    res.status(200)
+    res.send("Cadastro atualizado com sucesso")
+})
+
+app.put('/products/:id',(req: Request, res: Response)=>{
+    const id = req.params.id
+    res.status(200)
+    const newName = req.body.name as string | undefined
+    const newPrice = req.body.price as string | undefined
+    const newCategory = req.body.category as string | undefined
+
+    res.status(200)
+    res.send("Produto atualizado com sucesso")
+})
+
 console.log(users);
 console.log(products);
 console.log(purchases);
